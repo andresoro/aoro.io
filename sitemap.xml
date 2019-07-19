@@ -3,12 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://aoro.io/post/anatomy-of-this-website/</loc>
+    <lastmod>2019-07-19T13:43:52-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://aoro.io/</loc>
+    <lastmod>2019-07-19T13:43:52-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://aoro.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://aoro.io/post/</loc>
+    <lastmod>2019-07-19T13:43:52-07:00</lastmod>
     <priority>0</priority>
   </url>
   
