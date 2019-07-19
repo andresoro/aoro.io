@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html
+  class=""
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<meta name="keywords" content="">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="" />
+<meta property="og:title" content="Anatomy of this website" />
+<meta property="og:site_name" content="Andres Orozco" />
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="https://aoro.io/post/anatomy-of-this-website/" />
+<meta property="og:locale" content="en-us" />
+<meta property="article:published_time" content="2019-07-19
+" /> <meta property="article:modified_time" content="2019-07-19
+" />
+
+
+
+
+
+
+    <title>Anatomy of this website</title>
+    <link rel="canonical" href="https://aoro.io/post/anatomy-of-this-website/" />
+
+
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"
+/>
+
+<link rel="stylesheet" href="https://aoro.io/css/style.css" />
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/highlightjs@9.12.0/styles/github-gist.css"
+/>
+
+
+<script>
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	if (window.sessionStorage) {
+		var GA_SESSION_STORAGE_KEY = 'ga:clientId';
+		ga('create', 'UA-XXXXXXXXX-X', {
+	    'storage': 'none',
+	    'clientId': sessionStorage.getItem(GA_SESSION_STORAGE_KEY)
+	   });
+	   ga(function(tracker) {
+	    sessionStorage.setItem(GA_SESSION_STORAGE_KEY, tracker.get('clientId'));
+	   });
+   }
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+
+
+<body
+  lang="en-us"
+  class="sans-serif w-90 w-80-m w-60-ns center mv2 mv5-ns"
+  itemscope
+  itemtype="http://schema.org/Article"
+>
+  
+  <span class="b">/ </span>
+  <a href="https://aoro.io/" class="b bb bw1 pb1 no-underline black">Andres Orozco</a>
+  <span class="b"> / </span>
+  <a href="/post" class="b bb bw1 pb1 no-underline black">blog</a>
+
+  <section id="main" class="mt5">
+    <h1 itemprop="name" id="title">Anatomy of this website</h1>
+    <span class="f6 gray">July 19, 2019</span>
+
+      <article itemprop="articleBody" id="content" class="w-90 lh-copy">
+        
+
+<p>This post serves as a description of how this site is built and run. I will try and keep this up to date if any changes are made. The following is a rough guide to how I got this site up 👍.</p>
+
+<h2 id="hugo-caddy">Hugo + Caddy = 🚀</h2>
+
+<p>This basic static site takes advantage of two pieces of technology, <a href="https://github.com/gohugoio/hugo">Hugo</a> and <a href="https://github.com/caddyserver/caddy">Caddy</a>. Hugo is a fast, easy to use, extensible static site generator. This allows us to quickly build and serve static sites with a extensive collection of themes to suit blogs, documentation, and landing pages. While Hugo has a webserver with hot reloading built in, I found that it is only useful for development.</p>
+
+<p>When I want to expose my site to the internet, I use Caddy as my webserver. I chose Caddy for a couple of reasons. First, it is written in Go and I like to use and support projects written in my favorite langauges. Second, it allows for cool features such as webhooks so the server can respond to external changes. This allows for continuous deployment based on updates to git repositores so I can update my site without touching my server. Caddy also has automatic TLS via <a href="https://letsencrypt.org/">LetsEncrypt</a> which might be overkill for a static site but is a slick feature nonetheless.</p>
+
+      </article>
+
+      
+      <span class="f6 gray mv3" title="Lastmod: July 19, 2019. Published at: 2019-07-19.">
+        
+      </span>
+
+      
+
+  </section>
+
+  <footer>
+    <div>
+      <p class="f6 gray mt6 lh-copy">
+        
+      </p>
+    </div>
+  </footer>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+
+  </body>
+</html>
