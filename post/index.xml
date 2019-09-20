@@ -6,10 +6,20 @@
     <description>Recent content in Posts on andres orozco</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Jul 2019 13:43:52 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 20 Sep 2019 14:53:43 -0700</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>lytedb</title>
+      <link>/post/lytedb/</link>
+      <pubDate>Fri, 20 Sep 2019 14:53:43 -0700</pubDate>
+      
+      <guid>/post/lytedb/</guid>
+      <description>Motivations Behind lytedb I created lytedb to have a simple interface to store, retrieve, and persist Go structs. The idea is to have no friction between saving a struct and returning it from the database. For example, if I want to get a user from my db, it should be this simple:
+// add a new user under the key &#39;user-id&#39; lytedb.Add(&amp;quot;user-id&amp;quot;, User{Age: 22, Name: &amp;quot;Andres&amp;quot;}) // our user struct var user User // write value assigned to &#39;user-id&#39; onto our struct lytedb.</description>
+    </item>
     
     <item>
       <title>Anatomy of this website</title>

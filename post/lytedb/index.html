@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html
+  class=""
+  lang="en-us"
+  prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#"
+>
+  <head>
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="description" content="" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<meta name="keywords" content="">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:description" content="" />
+<meta property="og:title" content="lytedb" />
+<meta property="og:site_name" content="andres orozco" />
+<meta property="og:image" content="" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="" />
+<meta property="og:image:height" content="" />
+<meta property="og:url" content="/post/lytedb/" />
+<meta property="og:locale" content="en-us" />
+<meta property="article:published_time" content="2019-09-20
+" /> <meta property="article:modified_time" content="2019-09-20
+" />
+
+
+
+
+
+
+    <title>lytedb</title>
+    <link rel="canonical" href="/post/lytedb/" />
+
+
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/tachyons@4.11.1/css/tachyons.min.css"
+/>
+
+<link rel="stylesheet" href="/css/style.css" />
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/highlightjs@9.12.0/styles/github-gist.css"
+/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+
+
+<body
+  lang="en-us"
+  class="sans-serif w-90 w-80-m w-60-ns center mv2 mv5-ns"
+  itemscope
+  itemtype="http://schema.org/Article"
+>
+  
+  <span class="b">/ </span>
+  <a href="/" class="b bb bw1 pb1 no-underline black">andres orozco</a>
+  <span class="b"> / </span>
+  <a href="/post" class="b bb bw1 pb1 no-underline black">blog</a>
+
+  <section id="main" class="mt5">
+    <h1 itemprop="name" id="title">lytedb</h1>
+    <span class="f6 gray">September 20, 2019</span>
+
+      <article itemprop="articleBody" id="content" class="w-90 lh-copy">
+        
+
+<h1 id="motivations-behind-lytedb">Motivations Behind lytedb</h1>
+
+<p>I created <a href="https://github.com/andresoro/lytedb">lytedb</a> to have a simple interface to store, retrieve, and persist Go structs. The idea is to have no friction between saving a struct and returning it from the database. For example, if I want to get a user from my db, it should be this simple:</p>
+
+<pre><code>// add a new user under the key 'user-id'
+lytedb.Add(&quot;user-id&quot;, User{Age: 22, Name: &quot;Andres&quot;})
+
+// our user struct
+var user User
+
+// write value assigned to 'user-id' onto our struct
+lytedb.Get(&quot;user-id&quot;, &amp;user)
+</code></pre>
+
+<p>Before you would have to choose your database, choose how you encode your data, and then retrieve and encode/decode everytime you Set/Get an entry. I wrote this tool because I found myself repeating this data encoding loop in most of my web dev projects. If I am building a hobby project, why not make my data persistence layer seamless?</p>
+
+<p>I wanted to make this tool lean and for that reason the package is small and contains a tight API.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>Lytedb is built on two main tools. The first being <a href="https://github.com/etcd-io/bbolt">bolt</a> a persistent key-value store written purely in Go. This goal of that project is to &ldquo;is to provide a simple, fast, and reliable database for projects that don&rsquo;t require a full database server such as Postgres or MySQL&rdquo;. Perfect! The second tool is the <a href="https://godoc.org/encoding/gob">encoding/gob</a> which allows fast serialization between structs and binary values. The gob package is how lytedb serializes data and stores it. When you store a value on disk it is stored in the gob binary format. When you retreive it the package handles the decoding and writes directly onto the struct you initialized.</p>
+
+<h3 id="why-not-use-encoding-json">Why not use encoding/json?</h3>
+
+<p>This would make writing to and from REST APIs perhaps a bit easier but I decided that the perfomance gains from encoding/gob are worth it for most cases. JSON adds complexity and perfomance costs that may not be needed in most cases. Keeping storage simple and perfomant is the main goal. You can check out the json vs gob benchmarks <a href="https://gist.github.com/andresoro/490f3db2868e5262e96c33ae45c8e047">here</a>.</p>
+
+<h2 id="future">Future</h2>
+
+<p>For now this package does what I set out for it to do so I do not expect many changes. I am looking to add benchmark tests and maybe a JSON datastore to allow easy writing to/from REST APIs. Feel free to contribute!</p>
+
+      </article>
+
+      
+      <span class="f6 gray mv3" title="Lastmod: September 20, 2019. Published at: 2019-09-20.">
+        
+      </span>
+
+      
+
+  </section>
+
+  <footer>
+    <div>
+      <p class="f6 gray mt6 lh-copy">
+        
+      </p>
+    </div>
+  </footer>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+
+  </body>
+</html>
